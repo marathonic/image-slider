@@ -1,24 +1,24 @@
-const prev = document.getElementById("prev");
-const next = document.getElementById("next");
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
 
 prev.addEventListener('click', function(){
     const currentCard = document.querySelector('.card.view')
     // set the previousCard based on its availability
     const prevCard = currentCard.previousElementSibling
         ? currentCard.previousElementSibling
-        : document.querySelector(".card-container").lastElementChild;
-    currentCard.classList.remove("view");
-    prevCard.classList.add("view");
+        : document.querySelector('.card-container').lastElementChild;
+    currentCard.classList.remove('view');
+    prevCard.classList.add('view');
   });
-  next.addEventListener("click", function () {
+  next.addEventListener('click', function () {
     /* Find the current card */
-    const currentCard = document.querySelector(".card.view");
+    const currentCard = document.querySelector('.card.view');
     /* Set the nextCard based on its availability */
     const nextCard = currentCard.nextElementSibling
         ? currentCard.nextElementSibling
-        : document.querySelector(".card-container").firstElementChild;
-    currentCard.classList.remove("view");
-    nextCard.classList.add("view");
+        : document.querySelector('.card-container').firstElementChild;
+    currentCard.classList.remove('view');
+    nextCard.classList.add('view');
   });
 
 
@@ -27,13 +27,13 @@ prev.addEventListener('click', function(){
 
   function automateNext() {
     /* Find the current card */
-    const currentCard = document.querySelector(".card.view");
+    const currentCard = document.querySelector('.card.view');
     /* Set the nextCard based on its availability */
     const nextCard = currentCard.nextElementSibling
         ? currentCard.nextElementSibling
-        : document.querySelector(".card-container").firstElementChild;
-    currentCard.classList.remove("view");
-    nextCard.classList.add("view");
+        : document.querySelector('.card-container').firstElementChild;
+    currentCard.classList.remove('view');
+    nextCard.classList.add('view');
   }
 
 
@@ -49,6 +49,10 @@ prev.addEventListener('click', function(){
           switchTo('pip-1');
           break;
       
+        case 'pip-2':
+          switchTo('pip-2');
+          break;
+
         default:
           break;
       }
@@ -58,7 +62,7 @@ prev.addEventListener('click', function(){
 
   function switchToCard(e) {
     const clickedPip = e.target.id;
-    const cards = document.querySelector(".card-container").children;
+    const cards = document.querySelector('.card-container').children;
     const cardSelection = cards.item(clickedPip);
     console.log(cardSelection);
 
@@ -66,14 +70,30 @@ prev.addEventListener('click', function(){
   }
 
 function switchTo(identifier) {
-  const currentCard = document.querySelector('.card.view');  
-  currentCard.classList.remove('view');
+  let currentCard = document.querySelector('.card.view');  
   switch (identifier) {
     case 'pip-1':
-      document.querySelector('[data-picture-one]').classList.add('view')
+      document.querySelector('[data-picture-one]').classList.contains('view') 
+      ? false 
+      : document.querySelector('[data-picture-one]').classList.add('view')
       break;
-  
-    default:
+      
+      case 'pip-2':
+      currentCard.classList.remove('view');
+      document.querySelector('[data-picture-two]').classList.contains('view') 
+      ? false 
+      : document.querySelector('[data-picture-two]').classList.add('view')      
       break;
-  }
+
+    case 'pip-3':
+      currentCard.classList.remove('view');
+      document.querySelector('[data-picture-three]').classList.contains('view') 
+      ? false 
+      : document.querySelector('[data-picture-three]').classList.add('view')
+      break;
+      
+      default:
+        break;
+      }
+      currentCard.classList.remove('view');
 }
