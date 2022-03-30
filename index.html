@@ -12,20 +12,20 @@
     <main>
         <button id="prev">&lt;</button>
         <div class="card-container">
-            <div class="card view">
+            <div class="card view" data-picture-one>
                 <div class="card-image">
                     <img src="./the-white-stripes.jpeg" alt="Eponymous album">
                 </div>
                 <a href="https://en.wikipedia.org/wiki/Get_Behind_Me_Satan"></a>
             </div>
             <div class="card">
-                <div class="card-image">
+                <div class="card-image" data-picture-two>
                     <img src="./elephant.png" alt="Elephant">
                 </div>
                 <a href="https://en.wikipedia.org/wiki/Elephant_(album)"></a>
             </div>
             <div class="card">
-                <div class="card-image">
+                <div class="card-image" data-picture-three>
                     <img src="./get-behind-me-satan.jpg" alt="Get behind me Satan">
                 </div>
                 <a href="https://en.wikipedia.org/wiki/Elephant_(album)"></a>
@@ -33,12 +33,12 @@
         </div>
         <div class="pip-container">
 
-            <input type="radio" id="pip-1" name="pips">
-            <label for="pip-1">Go to Item 1</label>
-            <input type="radio" name="pips" id="pip-2">
-            <label for="pip-2">Go to Item 2</label>
-            <input type="radio" name="pips" id="pip-3">
-            <label for="pip-3">Go to Item 3</label>
+            <input type="radio" id="pip-1" name="pips" class="testing">
+            <label for="pip-1">1</label>
+            <input type="radio" name="pips" id="pip-2" class="testing">
+            <label for="pip-2">2</label>
+            <input type="radio" name="pips" id="pip-3" class="testing">
+            <label for="pip-3">3</label>
         </div>
         <button id="next">&gt;</button>
     </main>
